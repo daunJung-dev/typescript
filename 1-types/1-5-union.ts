@@ -25,7 +25,7 @@
 
     type LoginStatus = SUCCESS | FAILURE;
 
-    function login ({id, password}: {id:string, password: string}):Promise<LoginStatus> {
+    function _login ({id, password}: {id:string, password: string}):Promise<LoginStatus> {
         // code...
         return new Promise((resolve, reject) => {
             resolve({
@@ -39,7 +39,7 @@
     // printLoginState(state)
     // success -> body
     // fail -> reason
-    function printLoginState(state: LoginStatus):void {
+    function _printLoginState(state: LoginStatus):void {
         if('response' in state) {
             console.log(`🎉${state.response.body}`);
         } else {
@@ -47,5 +47,5 @@
         }
     }
 
-    
+
 }
