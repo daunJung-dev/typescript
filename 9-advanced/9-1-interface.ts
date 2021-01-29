@@ -57,4 +57,9 @@
 
   type NumberType = number;
   type Direction = "left" | "right";
+
+  /**
+   * NOTE 어떤것을 구현할 목적이라면? Interface
+   * 데이터를 담을 목적이라면 Type
+   */
 }
