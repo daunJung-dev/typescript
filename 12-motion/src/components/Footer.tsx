@@ -17,6 +17,7 @@ const footerStyle = css`
   justify-content: center;
   position: absolute;
   bottom: 0;
+  color: white;
 `;
 
 export default Footer;

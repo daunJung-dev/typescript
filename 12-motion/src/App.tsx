@@ -4,7 +4,7 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Layout from "./components/Layout";
 import MainContent from "./components/MainContent";
-import { ThemeProvider, withTheme } from "@emotion/react";
+import { ThemeProvider } from "@emotion/react";
 import { globalStyles } from "./globalStyles";
 
 const theme: Theme = {

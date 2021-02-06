@@ -18,12 +18,14 @@ const Header = ({ title = "MOTION" }: HeaderProps) => {
 const headerStyle = (theme: Theme) => css`
   width: 100%;
   background-color: ${theme.color.primary};
-  height: 6rem;
+  height: 8rem;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   position: fixed;
   h1.title {
+    margin: 0;
     color: ${theme.color.secondary};
   }
 `;
