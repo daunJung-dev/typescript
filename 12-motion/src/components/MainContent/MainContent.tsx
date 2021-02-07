@@ -1,15 +1,16 @@
 import { css } from "@emotion/react";
 import useModal from "../../hooks/useModal";
+import Dialog from "../Dialog";
 import ModalImpl from "../Modal";
 
 interface Props {}
 
 const MainContent = (props: Props) => {
-  const [isOpenModal, , handleToggleModal] = useModal();
+  const [isOpenModal, modalType, handleToggleModal] = useModal();
   return (
     <div css={mainContentStyle}>
       <ModalImpl isOpen={isOpenModal} onToggle={handleToggleModal}>
-        {"test"}
+        <Dialog modalType={modalType} onToggle={handleToggleModal} />
       </ModalImpl>
     </div>
   );
