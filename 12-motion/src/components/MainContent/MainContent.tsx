@@ -1,23 +1,14 @@
 import { css } from "@emotion/react";
-import React, { useCallback, useState } from "react";
-import { ModalType } from "../../@types/types";
+import useModal from "../../hooks/useModal";
 import ModalImpl from "../Modal";
 
 interface Props {}
 
 const MainContent = (props: Props) => {
-  const [isOpenModal, setIsOpenModal] = useState<boolean>(true);
-  const [modalType] = useState<ModalType>("url");
-  const handleToggleModal = useCallback(() => {
-    setIsOpenModal(!isOpenModal);
-  }, [isOpenModal]);
+  const [isOpenModal, , handleToggleModal] = useModal();
   return (
     <div css={mainContentStyle}>
-      <ModalImpl
-        isOpen={isOpenModal}
-        onToggle={handleToggleModal}
-        modalType={modalType}
-      >
+      <ModalImpl isOpen={isOpenModal} onToggle={handleToggleModal}>
         {"test"}
       </ModalImpl>
     </div>

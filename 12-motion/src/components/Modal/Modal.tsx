@@ -1,12 +1,10 @@
 import React from "react";
-import { ModalType } from "../../@types/types";
 import ModalInner from "./components/ModalInner";
 import ModalOverlay from "./components/ModalOverlay";
 import ModalWrapper from "./components/ModalWrapper";
 
 export interface Modal {
   isOpen: boolean;
-  modalType: ModalType;
   onToggle: () => void;
 }
 
