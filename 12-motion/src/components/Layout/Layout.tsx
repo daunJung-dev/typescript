@@ -1,4 +1,4 @@
-import { css, jsx } from "@emotion/react";
+import { css } from "@emotion/react";
 import BlackBackground from "../../assets/images/bg.jpg";
 export type LayoutProps = {
   children: React.ReactNode;

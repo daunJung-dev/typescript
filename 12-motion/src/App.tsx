@@ -3,7 +3,7 @@ import { Global, Theme } from "@emotion/react";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Layout from "./components/Layout";
-import MainContent from "./components/MainContent";
+import MainContent from "./components/MainContent/MainContent";
 import { ThemeProvider } from "@emotion/react";
 import { globalStyles } from "./globalStyles";
 
