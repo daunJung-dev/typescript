@@ -1,4 +1,4 @@
-import { css } from "@emotion/react";
+import { css, Theme } from "@emotion/react";
 import React from "react";
 import TimIcon from "../../TimIcon";
 type DialogHeaderProps = {
@@ -14,13 +14,13 @@ const DialogHeader = ({ onToggle }: DialogHeaderProps) => {
   );
 };
 
-const closeStyle = css`
+const closeStyle = (theme: Theme) => css`
   cursor: pointer;
-  & > path:first-child {
+  & > path:first-of-type {
     fill: none;
   }
-  & > path:last-child {
-    fill: white;
+  & > path:last-of-type {
+    fill: ${theme.color.secondary};
   }
 `;
 

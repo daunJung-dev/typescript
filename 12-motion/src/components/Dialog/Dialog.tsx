@@ -1,20 +1,23 @@
 import { css } from "@emotion/react";
-import React from "react";
-import { ModalType } from "../../@types/types";
+import React, { MouseEventHandler, useCallback } from "react";
 import DialogBody from "./components/DialogBody";
 import DialogFooter from "./components/DialogFooter";
 import DialogHeader from "./components/DialogHeader";
 
 type DialogProps = {
-  modalType: ModalType;
+  children?: React.ReactNode;
   onToggle?: () => void;
 };
 
-const Dialog = ({ onToggle, modalType }: DialogProps) => {
+const Dialog = ({ onToggle, children }: DialogProps) => {
+  const handleClick: MouseEventHandler<HTMLDivElement> = useCallback((e) => {
+    e.preventDefault();
+    e.stopPropagation();
+  }, []);
   return (
-    <div css={dialogStyle}>
+    <div css={dialogStyle} onClick={handleClick}>
       <DialogHeader onToggle={onToggle} />
-      <DialogBody />
+      <DialogBody>{children}</DialogBody>
       <DialogFooter />
     </div>
   );

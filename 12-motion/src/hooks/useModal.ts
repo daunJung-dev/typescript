@@ -1,31 +1,29 @@
 import { useCallback } from "react";
 import { useRecoilState } from "recoil";
-import { ModalType } from "../@types/types";
-import modalState from "../stores/modalState";
+import { FormType } from "../@types/types";
+import formState from "../atoms/formState";
+import modalState from "../atoms/modalState";
 
 export const useModal = () => {
-  const [state, setState] = useRecoilState(modalState);
-
-  const { isOpen, modalType } = state;
+  const [_modalState, setModalState] = useRecoilState(modalState);
+  const [_formState, setFormState] = useRecoilState(formState);
+  const { isOpen } = _modalState;
+  const { formType } = _formState;
 
   const onToggleModal = useCallback(() => {
-    setState({
-      ...state,
-      isOpen: !state.isOpen,
+    setModalState({
+      isOpen: !_modalState.isOpen,
     });
-  }, [state, setState]);
+  }, [_modalState, setModalState]);
 
-  const onChangeModalType = useCallback(
-    (type: ModalType) => {
-      setState({
-        ...state,
-        modalType: type,
-      });
+  const onChangeFormType = useCallback(
+    (type: FormType) => {
+      setFormState({ formType: type });
     },
-    [state, setState]
+    [setFormState]
   );
 
-  return [isOpen, modalType, onToggleModal, onChangeModalType] as const;
+  return [isOpen, onToggleModal, formType, onChangeFormType] as const;
 };
 
 export default useModal;

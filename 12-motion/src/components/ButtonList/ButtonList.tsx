@@ -1,10 +1,10 @@
 import { css, Theme } from "@emotion/react";
 import { useCallback } from "react";
-import { ItemType, ModalType } from "../../@types/types";
+import { ItemType, FormType } from "../../@types/types";
 import useModal from "../../hooks/useModal";
 import Button from "../Button";
 
-const menuToModal: Record<ItemType, ModalType> = {
+const menuToModal: Record<ItemType, FormType> = {
   image: "url",
   video: "url",
   note: "text",
@@ -14,13 +14,13 @@ const menuToModal: Record<ItemType, ModalType> = {
 const menuList: ItemType[] = ["image", "video", "note", "task"];
 
 const ButtonList = () => {
-  const [, , onToggle, setModalType] = useModal();
+  const [, onToggle, , setFormType] = useModal();
   const handleButton = useCallback(
     (itemType: ItemType) => {
-      setModalType(menuToModal[itemType]);
+      setFormType(menuToModal[itemType]);
       onToggle();
     },
-    [onToggle, setModalType]
+    [setFormType, onToggle]
   );
   return (
     <div css={buttonListStyle}>
@@ -37,8 +37,6 @@ const ButtonList = () => {
   );
 };
 
-const buttonListStyle = (them: Theme) => css`
-  border: ;
-`;
+const buttonListStyle = (them: Theme) => css``;
 
 export default ButtonList;

@@ -1,3 +1,3 @@
 export type ItemType = "image" | "video" | "note" | "task";
 
-export type ModalType = "url" | "text";
+export type FormType = "url" | "text";
