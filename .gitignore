@@ -4,3 +4,4 @@ yarn.lock
 build
 dist
 __snapshots__
+.eslintcache
